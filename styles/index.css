@@ -1,0 +1,18 @@
+/* --- RESETS --- */
+*, 
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* --- GENERAL SETUP --- */
+:root {
+    /* Fonts */
+    --font-primary: 'DM Sans', sans-serif;
+}
