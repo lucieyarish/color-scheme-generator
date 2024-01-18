@@ -11,8 +11,66 @@ body {
     padding: 0;
 }
 
+h1 {
+    margin: 0;
+}
+
 /* --- GENERAL SETUP --- */
 :root {
     /* Fonts */
     --font-primary: 'DM Sans', sans-serif;
+    /* Colors */
+    --gray-light: #efecee;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: var(--gray-light);
+}
+
+/* --- TYPOGRAPGY --- */
+.title {
+    font-size: 1.75em;
+}
+
+/* --- HEADER --- */
+.header-container {
+    padding: 1em;
+}
+
+/* --- LAYOUT --- */
+.main-container {
+    padding: 1em;
+}
+
+/* --- SCHEME GENERATOR HEADER --- */
+.user-selection {
+    padding: 0 3em;
+}
+
+input[type=color] {
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    border: 3px solid white;
+    cursor: pointer;
+}
+
+input[type=color]:hover {
+    width: 42px;
+    height: 42px; 
+}
+
+input[type=color]::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+}
+
+input[type=color]::-webkit-color-swatch-wrapper {
+    border: none;
+    border-radius: 50%;
+    padding: 0;
 }
