@@ -17,15 +17,15 @@
     </header>
     <main class="main-container">
         <section>
-            <form class="selection-form">
+            <form id="selection-form"class="selection-form">
                 <input 
-                    name="selected-color"
+                    name="selectedColor"
                     type="color" 
                     value="#C3B1E1" 
                     id="color-picker" 
                     class="color-picker" 
                     aria-label="color picker">
-                <select name="color-scheme" id="color-scheme" aria-label="color scheme">
+                <select name="colorScheme" id="scheme-selector" aria-label="color scheme">
                     <option value="monochrome">Monochrome</option>
                     <option value="monochrome-dark">Monochrome Dark</option>
                     <option value="monochrome-light">Monochrome Light</option>
@@ -35,6 +35,15 @@
                     <option value="triad">Triad</option>
                     <option value="quad">Quad</option>
                 </select>
+                <input 
+                    name="colorCount"
+                    type="number" 
+                    id="color-counter"
+                    value="5" 
+                    min="2" 
+                    max="9"
+                    aria-label="color counter">
+                <button id="submit-btn">Get color scheme</button>
             </form>
         </section>
     </main>

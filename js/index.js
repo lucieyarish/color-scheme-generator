@@ -1,6 +1,11 @@
-const colorPicker = document.getElementById('color-picker');
+const selectionForm = document.getElementById('selection-form');
+const submitBtn = document.getElementById('submit-btn');
 
-colorPicker.addEventListener('input', function () {
-  //TODO: set colorPicker.value as hex request param
-  console.log(colorPicker.value);
+submitBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(selectionForm);
+  const selectedColor = formData.get('selectedColor');
+  const selectedScheme = formData.get('colorScheme');
+  const selectedColorCount = formData.get('colorCount');
 });
