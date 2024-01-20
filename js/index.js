@@ -3,7 +3,34 @@ const submitBtn = document.getElementById('submit-btn');
 const colorsContainer = document.getElementById('colors-container');
 const colorsList = document.getElementById('colors');
 
+const setParams = (url, color, scheme, colorCount) => {
+  url.searchParams.set('hex', color);
+  url.searchParams.set('mode', scheme);
+  url.searchParams.set('count', colorCount);
+};
+
+const getColors = (selectedColor, selectedScheme, selectedColorCount, e) => {
+  const url = new URL('https://www.thecolorapi.com/scheme');
+
+  if (e) {
+    setParams(url, selectedColor, selectedScheme, selectedColorCount);
+  } else {
+    setParams(url, 'C3B1E1', 'monochrome', '5');
+  }
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.colors);
+      renderColors(data.colors);
+    });
+};
+
+getColors();
+
 const renderColors = (colors) => {
+  colorsList.innerHTML = '';
+
   const html = colors
     .map((color) => {
       return `
@@ -18,18 +45,6 @@ const renderColors = (colors) => {
   colorsList.innerHTML += html;
 };
 
-const url = new URL('https://www.thecolorapi.com/scheme');
-url.searchParams.set('hex', 'C3B1E1');
-url.searchParams.set('mode', 'monochrome');
-url.searchParams.set('count', '5');
-
-fetch(url)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data.colors);
-    renderColors(data.colors);
-  });
-
 submitBtn.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -37,4 +52,6 @@ submitBtn.addEventListener('click', function (e) {
   const selectedColor = formData.get('selectedColor');
   const selectedScheme = formData.get('colorScheme');
   const selectedColorCount = formData.get('colorCount');
+
+  getColors(selectedColor, selectedScheme, selectedColorCount, e);
 });
