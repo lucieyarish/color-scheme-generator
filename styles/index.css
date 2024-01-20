@@ -9,10 +9,17 @@ html,
 body {
     margin: 0;
     padding: 0;
+    height: 100vh;
 }
 
-h1 {
+h1,
+ul {
     margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
 }
 
 /* --- GENERAL SETUP --- */
@@ -34,9 +41,9 @@ body {
 
 /* --- TYPOGRAPGY --- */
 .title {
-    font-size: 1.75rem;
+    font-size: 2rem;
     text-align: center;
-    margin-top: 1em;
+    margin: 1em 0;
 }
 
 input,
@@ -52,7 +59,7 @@ button {
 
 /* --- LAYOUT --- */
 .main-container {
-    padding: 1em;
+    height: 100vh;
 }
 
 /* --- SCHEME GENERATOR HEADER --- */
@@ -62,6 +69,7 @@ button {
     grid-gap: 1em;
     grid-template-rows: 50px;
     align-items: center;
+    padding-bottom: 2em;
 }
 
 input[type=color] {
@@ -97,18 +105,15 @@ select {
     appearance: none;
     cursor: pointer;
     margin-left: 2em;
-}
-
-.scheme-selector {
-    padding: 0.55em 3em 0.55em 1em;
-}
-
-select {
     background-image: url('/assets/images/icons/caret-down-light.svg');
     background-size: 26px;
     background-repeat: no-repeat;
     background-position: calc(100% - 8px) center;
 }
+
+.scheme-selector {
+    padding: 0.55em 3em 0.55em 1em;
+} 
 
 .submit-btn {
     cursor: pointer;
@@ -130,4 +135,19 @@ select {
 .submit-btn {
     border-radius: 6px;
     border: 1px solid var(--grey);
+    font-size: 1.2rem;
+}
+
+/* --- GENERATED COLORS --- */
+.colors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+}
+
+.color {
+    height: 70vh;
+}
+
+.color-hex {
+    text-align: center;
 }
