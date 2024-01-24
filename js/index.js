@@ -32,18 +32,18 @@ getColors();
 const renderColors = (colors) => {
   colorsList.innerHTML = '';
 
-  const html = colors
+  const colorsContent = colors
     .map((color) => {
       return `
           <li class="color-container">
             <div data-id="${color.hex.value}" class="color" style="background-color: ${color.hex.value};"></div>
-            <p data-id="${color.hex.value}" class="color-hex">${color.hex.value}</p>
+            <p data-id="${color.hex.value}" class="color-hex" aria-live="polite">${color.hex.value}</p>
           </li>
         `;
     })
     .join('');
 
-  colorsList.innerHTML += html;
+  colorsList.innerHTML = colorsContent;
 };
 
 colorsContainer.addEventListener('click', function (e) {
